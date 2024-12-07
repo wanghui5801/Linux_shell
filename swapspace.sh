@@ -1,15 +1,22 @@
 #!/bin/bash
 
-# Set the size of the swap file in gigabytes (e.g., 2GB)
-SWAP_SIZE_GB=2
+# Prompt user for swap file size
+echo "Please enter the desired swap file size in gigabytes (e.g., 2):"
+read -r SWAP_SIZE_GB
+
+# Validate input is a positive number
+if ! [[ "$SWAP_SIZE_GB" =~ ^[0-9]+$ ]] || [ "$SWAP_SIZE_GB" -eq 0 ]; then
+    echo "Error: Please enter a valid positive number"
+    exit 1
+fi
 
 # Define the swap file path
 SWAP_FILE="/swapfile"
 
 # Check if the swap file already exists
 if [ -f "$SWAP_FILE" ]; then
-  echo "Swap file already exists at $SWAP_FILE"
-  exit 1
+    echo "Swap file already exists at $SWAP_FILE"
+    exit 1
 fi
 
 # Create swap file

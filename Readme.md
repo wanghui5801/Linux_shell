@@ -48,14 +48,21 @@ bash <(curl -s https://raw.githubusercontent.com/wanghui5801/Linux_shell/refs/he
     bash <(curl -s https://raw.githubusercontent.com/wanghui5801/Linux_shell/refs/heads/main/swapspace.sh)
     ```
 
-2. **Completion**: The script will create a swap file, set the appropriate permissions, enable the swap file, and add it to `/etc/fstab` for persistence. You will see a "Swap setup complete" message upon successful completion.
+2. **Enter Swap Size**: When prompted, enter the desired swap file size in gigabytes (e.g., 2).
 
-3. **Verify Swap**: After running the script, you can verify that the swap file is enabled by running:
+3. **Completion**: The script will:
+   - Create a swap file with your specified size
+   - Set the appropriate permissions
+   - Enable the swap file
+   - Add it to `/etc/fstab` for persistence
+   You will see a "Swap setup complete" message upon successful completion.
+
+4. **Verify Swap**: After running the script, you can verify that the swap file is enabled by running:
     ```shell
     swapon --show
     ```
 
-4. **Check Memory Usage**: The script will also display the current memory usage:
+5. **Check Memory Usage**: The script will also display the current memory usage:
     ```shell
     free -h
     ```
